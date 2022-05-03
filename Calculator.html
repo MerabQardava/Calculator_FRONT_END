@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    div{
+        width: 300px;
+        height: 100px;
+        border: 2px solid black;
+        text-align: center;
+        padding-top: 10px;
+        
+
+    }
+    .button{
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        color: white;
+        border: 1px solid gray;
+        padding: 0;
+        width: 25%;
+
+
+    }
+
+    .button:hover{
+        background-color: rgb(138, 134, 134);
+    }
+    .button:active{
+        background-color: rgb(173, 170, 170);
+    }
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+</style>
+<body>
+    
+        <div id="content">
+            
+
+        </div>
+        <div style="border: 0;">
+            <form>
+                <input type="button" onclick="number(1)" value="1" class="button">
+                <input type="button" onclick="number(2)" value="2" class="button">
+                <input type="button" onclick="number(3)" value="3" class="button">
+                <input type="button" onclick="number('+')" value="+" class="button">
+                <input type="button" onclick="number(4)" value="4" class="button">
+                <input type="button" onclick="number(5)" value="5" class="button">
+                <input type="button" onclick="number(6)" value="6" class="button">
+                <input type="button" onclick="number('-')" value="-" class="button">
+                <input type="button" onclick="number(7)" value="7" class="button">
+                <input type="button" onclick="number(8)" value="8" class="button">
+                <input type="button" onclick="number(9)" value="9" class="button">
+                <input type="button" onclick="number('*')" value="*" class="button">
+                <input type="button" onclick="number(0)" value="0" class="button" style="width: 50%;">
+                <input type="button" onclick="number('=')" value="=" class="button">
+                <input type="button" onclick="number('/')" value="/" class="button">
+                <input type="button" onclick="number('CLEAR')" value="CLEAR" class="button" style="width: 100%;background-color: red;">
+            </form>
+            
+        </div>
+
+    <script>
+        var num1="";    
+        var num="";
+        var text="";
+        var sum=0;
+        var operation="";
+        function number(a){
+            text+=a.toString();
+
+
+
+            
+            if(a=='+'||a=="-"||a=="*"||a=="/"){
+                num1=parseInt(text);
+                text="";
+                operation=a;
+                console.log(operation)
+            }
+            if((a=='=')&&(operation=="+")){
+                text=num1+parseInt(text);
+            }else if((a=='=')&&(operation=="-")){
+                text=num1-parseInt(text);
+            }
+            else if((a=='=')&&(operation=="*")){
+                text=num1*parseInt(text);
+            }
+            else if((a=='=')&&(operation=="/")){
+                text=num1/parseInt(text);
+            }else if(a=='='){
+                text=""
+            }
+
+            if(a=="CLEAR"){
+                text=" "
+            }
+            
+            
+        
+
+            document.getElementById("content").innerHTML = text;
+
+        }
+    </script>
+    
+</body>
+</html>
